@@ -3,7 +3,7 @@
 <h2>Usage:</h2>
 <ul>
 <li>add {{ infiniteScroll() }} after records listing</li>
-<li> et listing_records and recordsperpage to config of your content type. Example:<br>
+<li>set listing_records and recordsperpage to config of your content type. Example:<br>
     listing_records: 6<br>
     sort: -datepublish<br>
     recordsperpage: 6<br>
