@@ -2,15 +2,13 @@
 
 namespace Bolt\Extension\Locastic\InfiniteScroll;
 
-use Bolt;
-use InfiniteScroll\Controller\InfiniteScrollController;
-use Symfony\Component\HttpFoundation\Request;
+use Bolt\BaseExtension;
 
-class Extension extends Bolt\BaseExtension
+class Extension extends BaseExtension
 {
     public function initialize()
     {
-        $this->app->mount('/infinitescroll/{contenttypeslug}', new InfiniteScrollController());
+        $this->app->mount('/infinitescroll/{contenttypeslug}', new Controller\InfiniteScrollController());
 
         $this->addJavascript('assets/start.js', true);
         $this->addJavascript('assets/jscroll/jquery.jscroll.js', true);
