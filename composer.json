@@ -18,10 +18,9 @@
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extension\\Locastic\\InfiniteScroll\\": ["", "assets/"]
+            "Bolt\\Extension\\Locastic\\InfiniteScroll\\": [""]
         }
     },
-    
     "extra": {
         "bolt-assets": "assets"
     }

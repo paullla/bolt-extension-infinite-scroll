@@ -5,7 +5,7 @@
  * Date: 29/07/15
  * Time: 11:15
  */
-namespace InfiniteScroll\Controller;
+namespace Bolt\Extension\Locastic\InfiniteScroll\Controller;
 
 use Silex\Application;
 use Silex\ControllerCollection;
@@ -41,7 +41,7 @@ class InfiniteScrollController implements ControllerProviderInterface
             return 'Not a valid contenttype';
         }
 
-        if($request->getMethod() == 'GET') {
+        if ($this->app['request']->isMethod('GET')) {
             $page = $request->request->get('page');
 
             $amount = (!empty($contenttype['listing_records']) ? $contenttype['listing_records'] : $this->app['config']->get('general/listing_records'));
