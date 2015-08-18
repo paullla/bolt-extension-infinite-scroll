@@ -1,5 +1,5 @@
 {
-    "name": "locastic/infinite_scroll",
+    "name": "locastic/infinitescroll",
     "description": "Listing of contenttype entries with infinite scroll",
     "type": "bolt-extension",
     "keywords": ["bolt", "ajax", "listing", "infinite scroll"],
