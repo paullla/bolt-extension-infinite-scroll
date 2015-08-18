@@ -2,7 +2,6 @@
 
 namespace Bolt\Extension\Locastic\InfiniteScroll;
 
-include_once __DIR__ . '/Controller/InfiniteScrollController.php';
 use Bolt;
 use InfiniteScroll\Controller\InfiniteScrollController;
 use Symfony\Component\HttpFoundation\Request;
