@@ -4,7 +4,8 @@
     "type": "bolt-extension",
     "keywords": ["bolt", "ajax", "listing", "infinite scroll"],
     "require": {
-        "bolt/bolt": ">=2.0.0,<3.0.0"
+        "bolt/bolt": ">=2.0.0,<3.0.0",
+        "php": ">=5.4.0"
     },
     "license": "MIT",
     "authors": [
