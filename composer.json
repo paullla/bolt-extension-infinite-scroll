@@ -26,6 +26,6 @@
         "bolt-assets": "assets",
         "branch-alias": {
             "dev-master": "1.0.*"
-        },
+        }
     }
 }
