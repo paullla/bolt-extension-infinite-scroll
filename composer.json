@@ -14,6 +14,8 @@
             "email": "paula.cucuk@gmail.com"
         }
     ],
+    "minimum-stability" : "dev",
+	"prefer-stable" : true,
     "autoload": {
         "files": [
             "init.php"
@@ -25,7 +27,7 @@
     "extra": {
         "bolt-assets": "assets",
         "branch-alias": {
-            "master": "1.0.*"
+            "dev-master": "1.*"
         }
     }
 }
