@@ -10,9 +10,9 @@ class Extension extends BaseExtension
     {
         $this->app->mount('/infinitescroll/{contenttypeslug}', new Controller\InfiniteScrollController());
 
-        $this->addJavascript('assets/start.js', true);
-        $this->addJavascript('assets/jscroll/jquery.jscroll.js', true);
-        $this->addJavascript('assets/jscroll/jquery.jscroll.min.js', true);
+        $this->addJavascript('assets/start.js', ['late' => true]);
+        $this->addJavascript('assets/jscroll/jquery.jscroll.js', ['late' => true]);
+        $this->addJavascript('assets/jscroll/jquery.jscroll.min.js', ['late' => true]);
 
         $this->addTwigFunction('infiniteScroll', 'twigInfiniteScroll');
 
@@ -32,9 +32,3 @@ class Extension extends BaseExtension
         return "InfiniteScroll";
     }
 }
-
-
-
-
-
-
