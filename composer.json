@@ -1,27 +1,43 @@
 {
-    "name": "locastic/infinitescroll",
-    "description": "Listing of contenttype entries with infinite scroll",
-    "type": "bolt-extension",
-    "keywords": ["bolt", "ajax", "listing", "infinite scroll"],
-    "require": {
-        "bolt/bolt": ">=2.0.0,<3.0.0",
-        "php": ">=5.4.0"
+    "name" : "locastic/infinite_scroll",
+    "description" : "Listing of contenttype entries with infinite scroll",
+    "type" : "bolt-extension",
+    "keywords" : [
+        "bolt",
+        "ajax",
+        "listing",
+        "infinite scroll"
+    ],
+    "require" : {
+        "bolt/bolt" : ">=2.2.6,<3.0.0",
+        "php" : ">=5.4.0"
     },
-    "license": "MIT",
+    "require-dev" : {
+        "phpunit/phpunit" : "^4.0"
+    },
     "minimum-stability" : "dev",
     "prefer-stable" : true,
-    "authors": [
-        {
-            "name": "Paula Čučuk",
-            "email": "paula.cucuk@gmail.com"
+    "license" : "MIT",
+    "authors" : [{
+            "name" : "Paula Čučuk",
+            "email" : "paula.cucuk@gmail.com"
         }
     ],
-    "autoload": {
-        "files": [
+    "autoload" : {
+        "files" : [
             "init.php"
         ],
-        "psr-4": {
-            "Bolt\\Extension\\Locastic\\InfiniteScroll\\": ""
+        "psr-4" : {
+            "Bolt\\Extension\\Locastic\\InfiniteScroll\\" : ""
         }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "Bolt\\Extension\\Locastic\\InfiniteScroll\\Tests\\" : "tests/",
+            "Bolt\\Tests\\" : "vendor/bolt/bolt/tests/phpunit/unit/"
+        }
+    },
+    "extra" : {
+        "bolt-assets" : "assets"
     }
 }
