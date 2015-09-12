@@ -13,13 +13,11 @@ class Extension extends BaseExtension
         $this->app->before([$this, 'before']);
 
         $this->addTwigFunction('infiniteScroll', 'twigInfiniteScroll');
-
     }
 
     public function before()
     {
         $this->addJavascript('assets/start.js', ['late' => true]);
-        $this->addJavascript('assets/jscroll/jquery.jscroll.js', ['late' => true]);
         $this->addJavascript('assets/jscroll/jquery.jscroll.min.js', ['late' => true]);
     }
 
