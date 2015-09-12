@@ -10,15 +10,20 @@ class Extension extends BaseExtension
     {
         $this->app->mount('/infinitescroll/{contenttypeslug}', new Controller\InfiniteScrollController());
 
-        $this->addJavascript('assets/start.js', ['late' => true]);
-        $this->addJavascript('assets/jscroll/jquery.jscroll.js', ['late' => true]);
-        $this->addJavascript('assets/jscroll/jquery.jscroll.min.js', ['late' => true]);
+        $this->app->before([$this, 'before']);
 
         $this->addTwigFunction('infiniteScroll', 'twigInfiniteScroll');
 
     }
 
-    function twigInfiniteScroll()
+    public function before()
+    {
+        $this->addJavascript('assets/start.js', ['late' => true]);
+        $this->addJavascript('assets/jscroll/jquery.jscroll.js', ['late' => true]);
+        $this->addJavascript('assets/jscroll/jquery.jscroll.min.js', ['late' => true]);
+    }
+
+    public function twigInfiniteScroll()
     {
         $html = '<div id="infinite-scroll"></div>
                 <div id="infinite-scroll-bottom"></div>';
