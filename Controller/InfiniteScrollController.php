@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class InfiniteScrollController implements ControllerProviderInterface
 {
-    public $app;
+    private $app;
 
     /**
      * Returns routes to connect to the given application.
@@ -30,7 +30,6 @@ class InfiniteScrollController implements ControllerProviderInterface
         $ctr->match('', [$this, 'infiniteScroll'])
             ->method('GET');
 
-
         return $ctr;
     }
 
@@ -41,7 +40,7 @@ class InfiniteScrollController implements ControllerProviderInterface
             return 'Not a valid contenttype';
         }
 
-        if ($this->app['request']->isMethod('GET')) {
+        if ($request->isMethod('GET')) {
             $page = $request->request->get('page');
 
             $amount = (!empty($contenttype['listing_records']) ? $contenttype['listing_records'] : $this->app['config']->get('general/listing_records'));
