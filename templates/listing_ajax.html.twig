@@ -1,0 +1,17 @@
+{% for record in records %}
+    <article>
+        <a href="">{{ record.user.displayname }}</a> in
+        {% for link,title in record.taxonomy.categories %}
+            <a href="{{ link }}" title="{{ title }}">{{ title }}</a>
+        {% endfor %}
+        <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+
+        <p>{{ record.excerpt(220) }}</p>
+
+        <p>Published:
+            <time pubdate="pubdate">{{ record.datepublish|date('d.m.y') }}</time>
+        </p>
+
+        <a href="{{ record.link }}" title="{{ record.title }}">Read article</a>
+    </article>
+{% endfor %}

@@ -27,7 +27,7 @@ class InfiniteScrollController implements ControllerProviderInterface
     {
         $this->app = $app;
         $ctr = $app['controllers_factory'];
-        $ctr->match('', [$this, 'infiniteScroll'])
+        $ctr->match('/{contenttypeslug}', [$this, 'infiniteScroll'])
             ->method('GET');
 
         return $ctr;
@@ -36,7 +36,7 @@ class InfiniteScrollController implements ControllerProviderInterface
     public function infiniteScroll($contenttypeslug, Request $request)
     {
         $contenttype = $this->app['storage']->getContenttype($contenttypeslug);
-        if(empty($contenttype)) {
+        if (empty($contenttype)) {
             return 'Not a valid contenttype';
         }
 
@@ -47,8 +47,8 @@ class InfiniteScrollController implements ControllerProviderInterface
             $order = (!empty($contenttype['sort']) ? $contenttype['sort'] : $this->app['config']->get('general/listing_sort'));
             $content = $this->app['storage']->getContent($contenttype['slug'], array('limit' => $amount, 'order' => $order, 'page' => $page, 'paging' => true));
 
-            if(empty($contenttype['infinitescroll_template'])) {
-                $this->app['twig.loader.filesystem']->addPath(dirname(__DIR__) . '/assets/views');
+            if (empty($contenttype['infinitescroll_template'])) {
+                $this->app['twig.loader.filesystem']->addPath(dirname(__DIR__) . '/../templates');
                 $template = 'listing_ajax.html.twig';
             } else {
                 $template = $contenttype['infinitescroll_template'];
@@ -60,9 +60,8 @@ class InfiniteScrollController implements ControllerProviderInterface
                 'contenttype' => $contenttype['name']
             ];
 
-            if($content) {
-
-                return $this->app['render']->render($template, [], $globals);
+            if ($content) {
+                return $this->app['twig']->render($template, $globals);
             } else {
                 return 'No more posts';
             }
