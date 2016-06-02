@@ -9,7 +9,7 @@
         "infinite scroll"
     ],
     "require" : {
-        "bolt/bolt" : ">=2.2.6,<3.0.0",
+        "bolt/bolt" : "^3.0",
         "php" : ">=5.4.0"
     },
     "require-dev" : {
@@ -24,11 +24,8 @@
         }
     ],
     "autoload" : {
-        "files" : [
-            "init.php"
-        ],
         "psr-4" : {
-            "Bolt\\Extension\\Locastic\\InfiniteScroll\\" : ""
+            "Bolt\\Extension\\Locastic\\InfiniteScroll\\" : "src"
         }
     },
     "autoload-dev" : {
@@ -38,6 +35,7 @@
         }
     },
     "extra" : {
-        "bolt-assets" : "assets"
+        "bolt-assets" : "web",
+        "bolt-class": "Bolt\\Extension\\Locastic\\InfiniteScroll\\InfiniteScrollExtension"
     }
 }
