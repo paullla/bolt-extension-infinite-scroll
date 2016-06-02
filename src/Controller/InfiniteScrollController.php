@@ -27,7 +27,7 @@ class InfiniteScrollController implements ControllerProviderInterface
     {
         $this->app = $app;
         $ctr = $app['controllers_factory'];
-        $ctr->match('', [$this, 'infiniteScroll'])
+        $ctr->match('/{contenttypeslug}', [$this, 'infiniteScroll'])
             ->method('GET');
 
         return $ctr;
@@ -48,7 +48,7 @@ class InfiniteScrollController implements ControllerProviderInterface
             $content = $this->app['storage']->getContent($contenttype['slug'], array('limit' => $amount, 'order' => $order, 'page' => $page, 'paging' => true));
 
             if(empty($contenttype['infinitescroll_template'])) {
-                $this->app['twig.loader.filesystem']->addPath(dirname(__DIR__) . '/assets/views');
+                $this->app['twig.loader.filesystem']->addPath(dirname(__DIR__) . '/templates');
                 $template = 'listing_ajax.html.twig';
             } else {
                 $template = $contenttype['infinitescroll_template'];
